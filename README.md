@@ -18,7 +18,7 @@ O Android é um sistema operacional projetado principalmente para dispositivos m
 
 Uma aplicação Android é composta por uma série de componentes que trabalham juntos para oferecer funcionalidade e interatividade ao usuário. Esses componentes estão organizados em uma arquitetura que facilita o desenvolvimento modular e a reutilização de código. Vamos detalhar os principais componentes:
 
-# 1. Principais Componentes de uma Aplicação Android
+## 1. Principais Componentes de uma Aplicação Android
 
 ### a) Activities (Atividades)
 - **O que é uma Activity?**  
@@ -69,6 +69,9 @@ Uma aplicação Android é composta por uma série de componentes que trabalham 
           // Lógica para o clique do botão
       }
   });
+
+---
+  
 ### c) Fragments
 - **O que é um Fragment?**  
   É uma parte reutilizável de interface de usuário que pode ser incorporada dentro de uma Activity.
