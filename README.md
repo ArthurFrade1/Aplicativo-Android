@@ -275,7 +275,7 @@ MyApplication/
 └── .idea/
     └── (Configurações do Android Studio)
 
-    ```
+```
 
 Essa estrutura é padrão em todos os projetos Android criados no Android Studio, seja com **Java** ou **Kotlin**. Para iniciantes, as pastas mais importantes são `manifests`, `java` e `res`.
 
