@@ -157,7 +157,10 @@ Antes de começar, você precisará instalar as ferramentas básicas:
 
 4. Clique em **Finish**. O Android Studio criará automaticamente a estrutura do projeto.
 
-<img src="https://github.com/user-attachments/assets/d9919ec9-9fe4-43c2-9377-e0cc8a6f9dda" alt="image" width="500px">
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/d9919ec9-9fe4-43c2-9377-e0cc8a6f9dda" alt="image" width="650px">
+</div>
+
 
 
 
