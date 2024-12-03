@@ -109,6 +109,8 @@ Uma aplicação Android é composta por uma série de componentes que trabalham 
 
 # Ambiente de Desenvolvimento para Aplicativos Android
 
+Agora que já viu os principais componentes de uma aplicação Android esta na hora de conhecer o mais popular e completo ambiente de desenvolvimento, o Android Studio
+
 ## 1. Ferramentas Necessárias
 Antes de começar, você precisará instalar as ferramentas básicas:
 
@@ -161,6 +163,90 @@ Antes de começar, você precisará instalar as ferramentas básicas:
     <img src="https://github.com/user-attachments/assets/d9919ec9-9fe4-43c2-9377-e0cc8a6f9dda" alt="image" width="650px">
 </div>
 
+## Estrutura de um Projeto Android
+
+Ao criar um projeto Android, a estrutura do diretório pode parecer complexa para iniciantes. No entanto, cada pasta e arquivo desempenha um papel importante no desenvolvimento de aplicativos Android. Aqui está uma explicação detalhada das principais pastas e seus propósitos:
+
+---
+
+### **1. Pasta `app`**
+A pasta mais importante do projeto. Contém todo o código-fonte do aplicativo, recursos e arquivos de configuração. Dentro dela, temos:
+
+#### **a) `manifests/`**
+- Contém o arquivo **`AndroidManifest.xml`**.
+- **Função**:
+  - Define informações essenciais sobre o aplicativo, como:
+    - Nome do pacote do app.
+    - Permissões (como acesso à internet ou localização).
+    - Declaração de componentes (Activities, Services, Broadcast Receivers, etc.).
+  - Ponto de entrada do app (`<intent-filter>`).
+
+#### **b) `java/`**
+- Contém o código-fonte Java ou Kotlin do aplicativo.
+- **Função**:
+  - Inclui o código de:
+    - **Activities**: Gerenciam telas do app.
+    - **ViewModels** e **Controladores** (opcional): Parte lógica do app.
+    - **Serviços**: Processos em segundo plano.
+
+#### **c) `res/` (Resources)**
+- Contém recursos usados no aplicativo, como layouts, imagens e strings.
+- Subpastas principais:
+  - **`layout/`**: Arquivos XML que definem a interface gráfica do aplicativo.
+  - **`drawable/`**: Imagens e gráficos (como PNG, JPG, etc.).
+  - **`values/`**: Arquivos XML com valores reutilizáveis:
+    - **`strings.xml`**: Textos (como rótulos de botões).
+    - **`colors.xml`**: Definições de cores.
+    - **`styles.xml`**: Temas e estilos do app.
+
+#### **d) `assets/` (opcional)**
+- Contém arquivos brutos, como fontes personalizadas, arquivos JSON, etc.
+- **Função**: Permite acessar diretamente os arquivos via código.
+
+---
+
+### **2. Pasta `build/`**
+- Diretório gerado automaticamente durante a compilação.
+- Contém os arquivos necessários para executar o aplicativo no emulador ou dispositivo real.
+- **Função**: Não é preciso modificar ou interagir diretamente com essa pasta.
+
+---
+
+### **3. Arquivo `build.gradle` (nível do módulo)**
+- Configurações específicas para o módulo `app`.
+- Exemplos de configurações:
+  - Dependências do aplicativo (como bibliotecas externas).
+  - Versão mínima e máxima do SDK.
+
+---
+
+### **4. Pasta `gradle/`**
+- Contém arquivos relacionados ao sistema de automação de compilação do Gradle.
+- **Função**: Gerencia dependências e processos de build.
+
+---
+
+### **5. Pasta `.idea/`**
+- Contém arquivos de configuração do Android Studio.
+- **Função**: Configurações do ambiente de desenvolvimento (como atalhos e organização do projeto).
+- **Obs.:** Não afeta o funcionamento do aplicativo.
+
+---
+
+### **6. Arquivo `settings.gradle`**
+- Configura o ambiente de construção do projeto como um todo.
+- **Função**:
+  - Indica quais módulos (ex.: `app`) pertencem ao projeto.
+
+---
+
+### **Resumo Visual da Estrutura**
+
+MyApplication/ │ ├── app/ │ ├── manifests/ │ │ └── AndroidManifest.xml │ ├── java/ │ │ └── com.example.myapp/ │ │ ├── MainActivity.java (ou .kt) │ │ └── OutrosArquivos.java │ ├── res/ │ │ ├── drawable/ │ │ │ └── ic_launcher.png │ │ ├── layout/ │ │ │ └── activity_main.xml │ │ ├── values/ │ │ │ ├── strings.xml │ │ │ ├── colors.xml │ │ │ └── styles.xml │ │ └── assets/ │ │ └── dados.json │ ├── build/ │ └── (Arquivos de build gerados automaticamente) │ ├── gradle/ │ └── wrapper/ │ ├── build.gradle (nível do projeto) ├── settings.gradle └── .idea/ └── (Configurações do Android Studio)
+
+---
+
+Essa estrutura é padrão em todos os projetos Android criados no Android Studio, seja com **Java** ou **Kotlin**. Para iniciantes, as pastas mais importantes são `manifests`, `java` e `res`.
 
 
 
