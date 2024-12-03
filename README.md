@@ -148,7 +148,7 @@ Antes de começar, você precisará instalar as ferramentas básicas:
 **Passo a passo para criar um projeto:**
 
 1. Abra o Android Studio e clique em **"New Project"**.
-2. Escolha um template inicial, como **Empty Activity**.
+2. Escolha um template inicial, como **No Activity**.
 3. Configure os detalhes:
    - **Nome do Aplicativo**: Por exemplo, `MeuApp`.
    - **Nome do Pacote**: Ex.: `com.exemplo.meuapp`.
@@ -156,6 +156,9 @@ Antes de começar, você precisará instalar as ferramentas básicas:
    - **Minimum SDK**: Escolha o nível mínimo de API que o app suportará (recomenda-se Android 6.0 ou superior).
 
 4. Clique em **Finish**. O Android Studio criará automaticamente a estrutura do projeto.
+
+![image](https://github.com/user-attachments/assets/d9919ec9-9fe4-43c2-9377-e0cc8a6f9dda)
+
 
 
   
