@@ -107,6 +107,55 @@ Uma aplicação Android é composta por uma série de componentes que trabalham 
     startActivity(intent);
     ```
 
+# Ambiente de Desenvolvimento para Aplicativos Android
+
+## 1. Ferramentas Necessárias
+Antes de começar, você precisará instalar as ferramentas básicas:
+
+- **Android Studio**:  
+  É o IDE oficial para desenvolvimento Android, baseado no IntelliJ IDEA. Ele oferece:
+  - Editor de código para Kotlin e Java.
+  - Designer de interface gráfica.
+  - Ferramentas de depuração.
+  - Integração com o Gradle (sistema de build).
+
+- **JDK (Java Development Kit)**:  
+  Necessário para compilar e executar código Java/Kotlin. O Android Studio já inclui o JDK.
+
+- **Android SDK (Software Development Kit)**:  
+  Inclui ferramentas para desenvolvimento Android, como:
+  - Bibliotecas do Android.
+  - Ferramentas para criar APKs (pacotes do app).
+  - ADB (Android Debug Bridge) para comunicação com dispositivos.
+
+- **Emulador Android ou Dispositivo Físico**:  
+  O emulador simula um dispositivo Android no seu computador, já vem incluso no Android Studio. Você pode usar também um celular real para testes.
+
+---
+
+## 2. Instalação do Android Studio
+**Passo a passo**:
+
+1. **Baixe o Android Studio** no [site oficial](https://developer.android.com/studio).
+2. Durante a instalação:
+   - Escolha as configurações padrão.
+   - Certifique-se de que o Android SDK, emulador e JDK estão selecionados.
+3. Abra o Android Studio e faça o download das ferramentas SDK recomendadas.
+
+---
+
+## 3. Criando Seu Primeiro Projeto
+**Passo a passo para criar um projeto:**
+
+1. Abra o Android Studio e clique em **"New Project"**.
+2. Escolha um template inicial, como **Empty Activity**.
+3. Configure os detalhes:
+   - **Nome do Aplicativo**: Por exemplo, `MeuApp`.
+   - **Nome do Pacote**: Ex.: `com.exemplo.meuapp`.
+   - **Linguagem**: Escolha entre **Kotlin** ou **Java**.
+   - **Minimum SDK**: Escolha o nível mínimo de API que o app suportará (recomenda-se Android 6.0 ou superior).
+
+4. Clique em **Finish**. O Android Studio criará automaticamente a estrutura do projeto.
 
 
   
