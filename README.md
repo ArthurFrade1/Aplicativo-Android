@@ -242,7 +242,39 @@ A pasta mais importante do projeto. Contém todo o código-fonte do aplicativo, 
 
 ### **Resumo Visual da Estrutura**
 
-MyApplication/ │ ├── app/ │ ├── manifests/ │ │ └── AndroidManifest.xml │ ├── java/ │ │ └── com.example.myapp/ │ │ ├── MainActivity.java (ou .kt) │ │ └── OutrosArquivos.java │ ├── res/ │ │ ├── drawable/ │ │ │ └── ic_launcher.png │ │ ├── layout/ │ │ │ └── activity_main.xml │ │ ├── values/ │ │ │ ├── strings.xml │ │ │ ├── colors.xml │ │ │ └── styles.xml │ │ └── assets/ │ │ └── dados.json │ ├── build/ │ └── (Arquivos de build gerados automaticamente) │ ├── gradle/ │ └── wrapper/ │ ├── build.gradle (nível do projeto) ├── settings.gradle └── .idea/ └── (Configurações do Android Studio)
+```plaintext
+MyApplication/
+│
+├── app/
+│   ├── manifests/
+│   │   └── AndroidManifest.xml
+│   ├── java/
+│   │   └── com.example.myapp/
+│   │       ├── MainActivity.java (ou .kt)
+│   │       └── OutrosArquivos.java
+│   ├── res/
+│   │   ├── drawable/
+│   │   │   └── ic_launcher.png
+│   │   ├── layout/
+│   │   │   └── activity_main.xml
+│   │   ├── values/
+│   │   │   ├── strings.xml
+│   │   │   ├── colors.xml
+│   │   │   └── styles.xml
+│   │   └── assets/
+│   │       └── dados.json
+│
+├── build/
+│   └── (Arquivos de build gerados automaticamente)
+│
+├── gradle/
+│   └── wrapper/
+│
+├── build.gradle (nível do projeto)
+├── settings.gradle
+└── .idea/
+    └── (Configurações do Android Studio)
+
 
 ---
 
