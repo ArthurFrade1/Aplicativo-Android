@@ -294,14 +294,16 @@ No desenvolvimento de aplicativos Android, o XML (eXtensible Markup Language) de
 ###  O Papel do XML no Desenvolvimento Android
 No Android, o XML é usado principalmente para:
 
-**1. Definir a interface do usuário (layouts):
+###**1. Definir a interface do usuário (layouts)**:
 
 - Criação das telas do aplicativo (como botões, textos e imagens).
 - O arquivo XML especifica onde os elementos aparecem na tela e suas propriedades (tamanho, posição, cor, etc.).
-**2. Armazenar recursos reutilizáveis:
+  
+###**2. Armazenar recursos reutilizáveis**:
 
 - Strings, cores, dimensões, estilos e temas são armazenados em arquivos XML para facilitar o gerenciamento e a tradução.
-**3. Separar o design do código de lógica:
+  
+###**3. Separar o design do código de lógica**:
 
 O XML permite que o design da interface seja separado da lógica implementada em Java/Kotlin.
 - Isso ajuda a manter o código mais organizado e facilita mudanças no layout sem alterar o código-fonte principal.
@@ -341,6 +343,6 @@ Um arquivo XML no Android segue uma estrutura hierárquica e baseada em tags.
 
 Esses arquivos XMl que são as interfaces se localizam na pasta: `res/layout/`.
 Muitos dos arquivos de configuração também são em XML, entre eles temos:
-- AndroidManifest.xml
+- Configurações do App e permissões em `AndroidManifest.xml`
 - Arquivos de configuração de constantes em `res/` como `strings.xml`, `colors.xml` e `styles.xml`.
 - Arquivos de configurações de arquivos de imagens ou videos, dentro da pasta `res/drawable`. 
