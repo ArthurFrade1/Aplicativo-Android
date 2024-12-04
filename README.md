@@ -351,9 +351,11 @@ Muitos dos arquivos de configuração também são em XML, entre eles temos:
 
 **A tela:**
 
-![image](https://github.com/user-attachments/assets/bdfcece2-46b0-4cf0-bafd-86742c9ce156)
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/bdfcece2-46b0-4cf0-bafd-86742c9ce156" alt="image">
+</div>
 
-**Seu código"**
+**Seu código**
 
 ``` XML
 <?xml version="1.0" encoding="utf-8"?>
