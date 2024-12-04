@@ -294,16 +294,16 @@ No desenvolvimento de aplicativos Android, o XML (eXtensible Markup Language) de
 ###  O Papel do XML no Desenvolvimento Android
 No Android, o XML é usado principalmente para:
 
-###**1. Definir a interface do usuário (layouts)**:
+### **1. Definir a interface do usuário (layouts)**:
 
 - Criação das telas do aplicativo (como botões, textos e imagens).
 - O arquivo XML especifica onde os elementos aparecem na tela e suas propriedades (tamanho, posição, cor, etc.).
   
-###**2. Armazenar recursos reutilizáveis**:
+### **2. Armazenar recursos reutilizáveis**:
 
 - Strings, cores, dimensões, estilos e temas são armazenados em arquivos XML para facilitar o gerenciamento e a tradução.
   
-###**3. Separar o design do código de lógica**:
+### **3. Separar o design do código de lógica**:
 
 O XML permite que o design da interface seja separado da lógica implementada em Java/Kotlin.
 - Isso ajuda a manter o código mais organizado e facilita mudanças no layout sem alterar o código-fonte principal.
@@ -345,4 +345,153 @@ Esses arquivos XMl que são as interfaces se localizam na pasta: `res/layout/`.
 Muitos dos arquivos de configuração também são em XML, entre eles temos:
 - Configurações do App e permissões em `AndroidManifest.xml`
 - Arquivos de configuração de constantes em `res/` como `strings.xml`, `colors.xml` e `styles.xml`.
-- Arquivos de configurações de arquivos de imagens ou videos, dentro da pasta `res/drawable`. 
+- Arquivos de configurações de arquivos de imagens ou videos, dentro da pasta `res/drawable`.
+
+### Exemplo do código de uma activity 
+
+**A tela:**
+
+![image](https://github.com/user-attachments/assets/bdfcece2-46b0-4cf0-bafd-86742c9ce156)
+
+**Seu código"**
+
+``` XML
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/BACK">
+
+    <LinearLayout
+
+        android:id="@+id/lin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@android:color/transparent"
+        android:padding="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/Road"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/rua" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Solicitar Manutenção"
+            android:fontFamily="@font/aclonica"
+            android:textSize="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"/>
+    </LinearLayout>
+
+    <!-- CardView 1 -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:id="@+id/first"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintTop_toBottomOf="@id/lin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buraco Gigante na pista"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/description1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title1"
+                android:layout_marginTop="8dp"
+                android:text="Buraco de 4m de diametro na BR-262"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- CardView 2 -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_marginTop="8dp"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintTop_toBottomOf="@id/first"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Encosta perto de cair"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/description2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title2"
+                android:layout_marginTop="8dp"
+                android:text="Próximo ao posto 3 corações"
+                android:textSize="14sp" />
+
+            <CheckBox
+                android:id="@+id/checkbox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_entrar"
+        style="@style/Button"
+        android:text="Enviar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+
+        android:layout_marginTop="400dp"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Adicione mais CardViews conforme necessário -->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+```
+
