@@ -279,7 +279,68 @@ MyApplication/
 
 Essa estrutura é padrão em todos os projetos Android criados no Android Studio, seja com **Java** ou **Kotlin**. Para iniciantes, as pastas mais importantes são `manifests`, `java` e `res`.
 
+--- 
 
+Agora que já sabemos o que é o Android, como funciona, entendemos a base de uma aplicação android e seus principais compenentes e também instalamos o ambiente de desenvolvimento e estudamos a estrutura do projeto estamos prontos para começarmos como o desenvolvimento de fato, com a linguagem de marcação utilizada no front end dos nossos aplicativos, o XML.
 
+---
 
-  
+## XML
+
+No desenvolvimento de aplicativos Android, o XML (eXtensible Markup Language) desempenha um papel essencial para definir a interface gráfica e organizar recursos do aplicativo. Ele é amplamente utilizado no desenvolvimento Android para descrever layouts, temas, valores, strings, cores e outros recursos de forma estruturada e separada do código-fonte em Java ou Kotlin
+
+---
+
+###  O Papel do XML no Desenvolvimento Android
+No Android, o XML é usado principalmente para:
+
+**1. Definir a interface do usuário (layouts):
+
+- Criação das telas do aplicativo (como botões, textos e imagens).
+- O arquivo XML especifica onde os elementos aparecem na tela e suas propriedades (tamanho, posição, cor, etc.).
+**2. Armazenar recursos reutilizáveis:
+
+- Strings, cores, dimensões, estilos e temas são armazenados em arquivos XML para facilitar o gerenciamento e a tradução.
+**3. Separar o design do código de lógica:
+
+O XML permite que o design da interface seja separado da lógica implementada em Java/Kotlin.
+- Isso ajuda a manter o código mais organizado e facilita mudanças no layout sem alterar o código-fonte principal.
+
+###  Estrutura Básica de um Arquivo XML
+
+Um arquivo XML no Android segue uma estrutura hierárquica e baseada em tags.
+
+``` XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Olá, Mundo!" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clique Aqui" />
+</LinearLayout>
+
+```
+
+- **Declaração XML**: <?xml version="1.0" encoding="utf-8"?> define o tipo de arquivo.
+- **Tag raiz**: LinearLayout é a tag principal que organiza os elementos dentro dela.
+- **Elementos-filhos**: TextView e Button são elementos da interface.
+- **Atributos**: Propriedades de cada elemento (ex.: android:layout_width, android:text).
+
+Esses arquivos XMl que são as interfaces se localizam na pasta: `res/layout/`.
+Muitos dos arquivos de configuração também são em XML, entre eles temos:
+- AndroidManifest.xml
+- Arquivos de configuração de constantes em `res/` como `strings.xml`, `colors.xml` e `styles.xml`.
+- Arquivos de configurações de arquivos de imagens ou videos, dentro da pasta `res/drawable`. 
