@@ -18,7 +18,7 @@ O Android é um sistema operacional projetado principalmente para dispositivos m
 
 Uma aplicação Android é composta por uma série de componentes que trabalham juntos para oferecer funcionalidade e interatividade ao usuário. Esses componentes estão organizados em uma arquitetura que facilita o desenvolvimento modular e a reutilização de código. Vamos detalhar os principais componentes:
 
-## 1. Principais Componentes de uma Aplicação Android
+## Principais Componentes de uma Aplicação Android
 
 ### a) Activities (Atividades)
 - **O que é uma Activity?**  
@@ -1070,25 +1070,34 @@ class Login : AppCompatActivity() {
 
 ---
 
-## **Conclusão**
-
-Ambas as linguagens são poderosas e podem ser usadas juntas em um mesmo projeto, permitindo a migração gradual de um código legado em Java para Kotlin. Essa interoperabilidade facilita a escolha baseada em necessidades específicas do projeto.
-
-
+**Ambas as linguagens são poderosas e podem ser usadas juntas em um mesmo projeto, permitindo a migração gradual de um código legado em Java para Kotlin. Essa interoperabilidade facilita a escolha baseada em necessidades específicas do projeto.**
 
 ## **Conclusão** 
 
-A Google criou um site especificamente para iniciantes no desenvolvimento Android, que pode ser acessado no link: [**Guia desenvolvimento Android**](https://developer.android.com/develop?hl=pt-br).
+  Esse é somente o começo do seu caminho no Desenvolvimento Android e Mobile num geral, pois a maioria dos conceitos vistos aqui, se aplicam também ao desenvolvimento em IOS, ou Híbrido.  
+  Esperamos ter sido de ajuda em seus estudos em Engenharia de Software.  
+
+
+  
+Seguem links para estudo: 
+
+- [**Guia desenvolvimento Android Google**](https://developer.android.com/develop?hl=pt-br).
+- [**Documentação oficial sobre XML no Android**](https://developer.android.com/guide/topics/resources/overview).
+- [**Documentação oficial do Java**](https://docs.oracle.com/en/java/).
+- [**Documentação oficial do Kotlin**](https://kotlinlang.org/docs/home.html).
 
 Exemplos de Aplicativos simples desenvolvidos por nós:
-[**Aplicativo Muscle Manager**](https://github.com/ArthurFrade1/MuscleManager/tree/master).
-[**Aplicativo Muscle Manager**](https://github.com/GuilhermeADev/Aplicativo-Inclusao).
+
+- [**Aplicativo Muscle Manager**](https://github.com/ArthurFrade1/MuscleManager/tree/master).
+- [**Aplicativo Muscle Manager**](https://github.com/GuilhermeADev/Aplicativo-Inclusao).
 
 Autores:
-Arthur Afonso Frade de Aquino
-Arthur Miranda Moreira
-Caio Rangel Nunes
-Luís Felipede Paula Mendes
+
+- **Arthur Afonso Frade de Aquino**
+- **Arthur Miranda Moreira**
+- **Caio Rangel Nunes**
+- **Luís Felipe de Paula Mendes**
+
   
 
 
