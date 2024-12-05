@@ -497,3 +497,356 @@ Muitos dos arquivos de configuração também são em XML, entre eles temos:
 
 ```
 
+Para mais informações detalhadas, visite a [**Documentação oficial sobre XML no Android**](https://developer.android.com/guide/topics/resources/overview).
+
+---
+
+Agora que já vimos o XML e como montar a estrutura visual da sua página, é hora de implementar a parte lógica e funcionl do seu aplicativo, o Back-End e para isso estudar o uso das duas linguagens mais usadas para esse fim. O Java e o Kotlin.
+
+## Java e Kotlin 
+
+### **Java no Desenvolvimento Android**
+
+Java foi a linguagem oficial para o desenvolvimento Android desde o início do sistema até 2017, quando a Google introduziu Kotlin como uma alternativa. Apesar de não ser mais a linguagem principal, Java continua amplamente utilizado, com uma vasta base de código e suporte contínuo.
+
+### **Características**
+- **Fortemente tipada:** Java exige que você declare explicitamente os tipos de dados, o que ajuda na legibilidade do código.
+- **Compatibilidade retroativa:** Permite que você crie aplicativos que funcionem em versões mais antigas do Android (útil para alcançar mais usuários).
+- **Ampla comunidade:** Por ser mais antiga, tem uma vasta comunidade de desenvolvedores e uma infinidade de bibliotecas já prontas.
+- **Simplicidade inicial:** A curva de aprendizado é um pouco mais fácil para quem já tem experiência em linguagens como C ou C++.
+
+### **Vantagens no Desenvolvimento Mobile**
+1. **Estabilidade e Maturidade:** Java é uma linguagem madura, com muitos exemplos e documentação.
+2. **Base de código existente:** Projetos antigos e bibliotecas amplamente utilizam Java, tornando-a essencial para manutenção de aplicativos legados.
+3. **Portabilidade:** Java é executado na JVM (Java Virtual Machine), o que facilita a reutilização de partes do código em outros contextos.
+
+### **Desvantagens no Desenvolvimento Mobile**
+1. **Verbosidade:** Programar em Java pode exigir mais código para tarefas simples, o que pode levar a arquivos grandes e repetitivos.
+2. **Novas funcionalidades:** Algumas APIs mais recentes do Android foram projetadas com Kotlin em mente, o que faz o uso do Java parecer menos fluido nesses casos.
+
+---
+
+### **Kotlin no Desenvolvimento Android**
+
+Kotlin foi introduzido pela JetBrains em 2011 e adotado oficialmente pela Google como a linguagem principal para desenvolvimento Android em 2017. Ele é totalmente interoperável com Java, permitindo que ambas as linguagens coexistam no mesmo projeto.
+
+### **Características**
+- **Sintaxe concisa:** Reduz a quantidade de código necessário para realizar tarefas comuns.
+- **Segurança contra NullPointerException:** Kotlin introduz o conceito de **tipos nulos** que força o desenvolvedor a tratar situações onde variáveis podem ser nulas.
+- **Compatibilidade com Java:** É possível usar bibliotecas escritas em Java diretamente no código Kotlin.
+- **Orientado a desenvolvedores modernos:** Possui suporte integrado para corrotinas, que facilitam o trabalho com **tarefas assíncronas**.
+
+### **Vantagens no Desenvolvimento Mobile**
+1. **Menos código repetitivo:** Recursos como lambdas, extensões e data classes eliminam a necessidade de boilerplate code.
+2. **Desempenho:** Como Kotlin é compilado para bytecode Java, ele tem o mesmo desempenho em tempo de execução.
+3. **Corrotinas:** Simplificam a execução de operações assíncronas (ex.: chamadas de rede).
+4. **Melhor suporte às APIs modernas:** Algumas funcionalidades, como Jetpack Compose, são projetadas diretamente com Kotlin em mente.
+
+### **Desvantagens no Desenvolvimento Mobile**
+1. **Curva de aprendizado:** Para quem vem de Java ou outra linguagem imperativa, pode levar tempo para se acostumar à sintaxe e aos conceitos mais modernos de Kotlin.
+2. **Recursos avançados:** Apesar de conciso, exige entender algumas abstrações modernas que podem confundir iniciantes.
+
+## **Exemplo de Java e Kotlin**
+
+Exemplo de activity de tela de login, em que o usuário digita seu E-mail e senha, essas informações são buscadas no banco de dados Firebase e se permtido o usuário é direcionado para a tela principal, além de ter a opção de se redirecionar para outra tela para criar conta:
+
+###**Seu XML**: 
+<div align="center">
+    <img src="https://github.com/user-attachments/assets/c64f20de-3e75-4661-9cc1-cc5db5b7a985" alt="image">
+</div>
+
+###**Seu código em java**:
+
+``` Java 
+
+package com.example.musclemanager;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+public class Login extends AppCompatActivity {
+
+    // Objeto responsável por autenticar usuários no Firebase
+    private FirebaseAuth mAuth;
+
+    // Objeto para acessar o Firestore, um banco de dados na nuvem
+    private FirebaseFirestore db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // Configuração para tornar a interface adaptada às bordas da tela
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_login);
+
+        // Configura os preenchimentos (padding) na tela para evitar sobreposição com barras do sistema
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+        // Botão para criar uma conta. Ao clicar, abre a tela de criação de conta
+        Button butCriarConta = findViewById(R.id.butCriarconta);
+        butCriarConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Inicia a activity CriarConta ao clicar no botão
+                Intent intent = new Intent(Login.this, CriarConta.class);
+                startActivity(intent);
+            }
+        });
+
+        // Inicializa o objeto de autenticação do Firebase
+        mAuth = FirebaseAuth.getInstance();
+
+        // Verifica se já existe um usuário logado
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+        // Inicializa o objeto para acessar o Firestore
+        db = FirebaseFirestore.getInstance();
+
+        // Caso exista um usuário logado, ele pode ser redirecionado ou ter alguma ação específica
+        if (currentUser != null) {
+            // Neste caso, a ação está comentada
+            // reload();
+        }
+
+        // Obtém as referências para os campos de texto e o botão da tela de login
+        TextView email = findViewById(R.id.emailEdit); // Campo para o e-mail
+        TextView senha = findViewById(R.id.senhaEdit); // Campo para a senha
+        Button button = findViewById(R.id.butLogin);   // Botão de login
+
+        // Configura o comportamento do botão de login
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Verifica se os campos de e-mail ou senha estão vazios
+                if (String.valueOf(email.getText()).isEmpty() || String.valueOf(senha.getText()).isEmpty()) {
+                    // Mostra uma mensagem pedindo para preencher os campos
+                    Toast.makeText(Login.this, "Preencha os campos!", Toast.LENGTH_SHORT).show();
+                } else {
+                    // Faz o login com os dados informados pelo usuário
+                    mAuth.signInWithEmailAndPassword(String.valueOf(email.getText()), String.valueOf(senha.getText()))
+                            .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    // Verifica se o login foi bem-sucedido
+                                    if (task.isSuccessful()) {
+                                        // Se o login foi bem-sucedido, obtém o usuário logado
+                                        FirebaseUser user = mAuth.getCurrentUser();
+
+                                        // Abre a tela principal (MainActivity)
+                                        Intent intent = new Intent(Login.this, MainActivity.class);
+                                        startActivity(intent);
+
+                                    } else {
+                                        // Caso o login falhe, exibe uma mensagem de erro
+                                        Toast.makeText(Login.this, "Usuário ou senha inválidos", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+                }
+            }
+        });
+    }
+}
+
+```
+
+###**Seu código em Kotlin**:
+
+``` Kotlin
+
+package com.example.musclemanager
+
+import android.content.Intent
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.EdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.Insets
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
+
+class Login : AppCompatActivity() {
+
+    // Objeto responsável por autenticar usuários no Firebase
+    private lateinit var mAuth: FirebaseAuth
+
+    // Objeto para acessar o Firestore (banco de dados na nuvem)
+    private lateinit var db: FirebaseFirestore
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        // Configuração para tornar a interface adaptada às bordas da tela
+        EdgeToEdge.enable(this)
+        setContentView(R.layout.activity_login)
+
+        // Configura os preenchimentos (padding) na tela para evitar sobreposição com barras do sistema
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars: Insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        // Botão para criar uma conta
+        val butCriarConta: Button = findViewById(R.id.butCriarconta)
+        butCriarConta.setOnClickListener {
+            // Inicia a activity CriarConta ao clicar no botão
+            val intent = Intent(this, CriarConta::class.java)
+            startActivity(intent)
+        }
+
+        // Inicializa o objeto de autenticação do Firebase
+        mAuth = FirebaseAuth.getInstance()
+
+        // Verifica se já existe um usuário logado
+        val currentUser: FirebaseUser? = mAuth.currentUser
+
+        // Inicializa o Firestore
+        db = FirebaseFirestore.getInstance()
+
+        // Se o usuário já estiver logado, pode redirecioná-lo para outra tela
+        if (currentUser != null) {
+            // Neste caso, está comentado
+            // reload()
+        }
+
+        // Referências para os campos de entrada e o botão de login
+        val email: TextView = findViewById(R.id.emailEdit) // Campo para o e-mail
+        val senha: TextView = findViewById(R.id.senhaEdit) // Campo para a senha
+        val button: Button = findViewById(R.id.butLogin)   // Botão de login
+
+        // Configura o comportamento do botão de login
+        button.setOnClickListener {
+            // Verifica se os campos estão vazios
+            if (email.text.isNullOrEmpty() || senha.text.isNullOrEmpty()) {
+                // Mostra uma mensagem pedindo para preencher os campos
+                Toast.makeText(this, "Preencha os campos!", Toast.LENGTH_SHORT).show()
+            } else {
+                // Faz o login com os dados informados
+                mAuth.signInWithEmailAndPassword(email.text.toString(), senha.text.toString())
+                    .addOnCompleteListener(this) { task ->
+                        if (task.isSuccessful) {
+                            // Se o login foi bem-sucedido, redireciona para a tela principal
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                        } else {
+                            // Caso o login falhe, exibe uma mensagem de erro
+                            Toast.makeText(this, "Usuário ou senha inválidos", Toast.LENGTH_SHORT).show()
+                        }
+                    }
+            }
+        }
+    }
+}
+
+```
+
+###  Comparação
+
+#### **1. Verbosidade**
+
+###### **Java**
+O Java é conhecido por ser uma linguagem mais verbosa, o que significa que você geralmente precisa escrever mais código para realizar a mesma tarefa. Isso pode levar a mais erros e a uma manutenção mais trabalhosa.
+
+**Exemplo (Login em Java):**
+```java
+Button button = findViewById(R.id.loginButton);
+button.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // Lógica de login
+    }
+});
+
+```
+
+###### **Kotlin**
+O Kotlin, por outro lado, reduz a quantidade de código necessário, graças a seus recursos modernos, como funções lambda e inferência de tipo.
+
+**Exemplo (Login em Kotlin):**
+
+```Kotlin
+loginButton.setOnClickListener {
+    // Lógica de login
+}
+```
+
+####**2. Null Safety (Segurança contra valores nulos)**
+######**Java**
+O Java permite referências nulas, o que frequentemente leva ao infame erro de **NullPointerException (NPE)**, um dos erros mais comuns em aplicações Android.
+```Java
+String nome = null;
+// Isso pode causar um NullPointerException
+System.out.println(nome.length());
+```
+
+######**Kotlin**
+O Kotlin foi projetado para evitar NPEs ao introduzir a **segurança nula (Null Safety)**. Em Kotlin, um tipo não pode ser nulo por padrão. Se for necessário que uma variável aceite valores nulos, você deve explicitamente declará-la como tal, usando ?.
+
+```Kotlin
+var nome: String? = null
+// É necessário verificar se é nulo antes de acessar
+println(nome?.length)
+
+```
+
+## **Comparação Java x Kotlin**
+
+| **Aspecto**             | **Java**                                   | **Kotlin**                                 |
+|--------------------------|--------------------------------------------|--------------------------------------------|
+| **Verbosidade**          | Mais verboso                               | Código mais conciso                        |
+| **Null Safety**          | Precisa de verificações manuais            | Suporte nativo para tipos nulos            |
+| **Interoperabilidade**   | Totalmente compatível com Kotlin           | Totalmente compatível com Java             |
+| **Comunidade**           | Ampla e madura                            | Crescendo rapidamente                     |
+| **Modernidade**          | APIs mais antigas e estáveis               | APIs modernas e orientadas a produtividade|
+| **Uso com Jetpack Compose** | Suporte completo, mas menos fluido         | Feito para Kotlin                          |
+
+---
+
+## **Quando escolher Java ou Kotlin?**
+
+### **Use Java quando:**
+- Você está trabalhando em um projeto legado que já utiliza Java.
+- Sua equipe tem mais experiência em Java.
+- O aplicativo precisa de compatibilidade com dispositivos muito antigos.
+
+### **Use Kotlin quando:**
+- Está criando um novo projeto.
+- Deseja escrever menos código e evitar bugs relacionados a nulos.
+- Vai trabalhar com APIs mais modernas, como **Jetpack Compose**.
+
+---
+
+## **Conclusão**
+
+Ambas as linguagens são poderosas e podem ser usadas juntas em um mesmo projeto, permitindo a migração gradual de um código legado em Java para Kotlin. Essa interoperabilidade facilita a escolha baseada em necessidades específicas do projeto.
+
