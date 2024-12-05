@@ -550,6 +550,147 @@ Kotlin foi introduzido pela JetBrains em 2011 e adotado oficialmente pela Google
 
 Para mais informações detalhadas, visite a [**Documentação oficial do Kotlin**](https://kotlinlang.org/docs/home.html).
 
+## Conceitos básicos de Aplicações Mobile
+
+O Java e o Kotlin serve para definir a lógica da aplicação, estabelecer suas regras de negócio e promover uma interação como o usuário.
+Para isso é fundamental exemplos com o uso dos principais conceitos do Back-End Android:
+
+### **1. Pegar o ID de um compontente** 
+
+Para podermos interagir como os componentes e suas ações precisamos obter sua instância a partir de seu id.
+
+**Java:**
+
+``` Java
+
+Button myButton = findViewById(R.id.my_button);
+TextView myText = findViewById(R.id.my_text);
+
+
+```
+
+**Kotlin:**
+
+``` Kotlin
+
+val myButton: Button = findViewById(R.id.my_button)
+val myText: TextView = findViewById(R.id.my_text)
+
+
+```
+
+### **2.Criar um Método para um Evento de Clique em um Botão**
+
+Precisamo usar um Listener no objeto em que está a instância do nosso comoponente para podermos lidar como eventos.
+
+**Java:**
+
+``` Java
+
+Button myButton = findViewById(R.id.my_button);
+myButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        // Ação a ser executada quando o botão for clicado
+        Toast.makeText(getApplicationContext(), "Botão clicado!", Toast.LENGTH_SHORT).show();
+    }
+});
+
+
+```
+
+**Kotlin:**
+
+``` Kotlin
+
+val myButton: Button = findViewById(R.id.my_button)
+myButton.setOnClickListener {
+    // Ação a ser executada quando o botão for clicado
+    Toast.makeText(applicationContext, "Botão clicado!", Toast.LENGTH_SHORT).show()
+}
+
+
+```
+
+### **3.Abrir Outra Tela (Intent)** 
+
+Para um App completo, precisamos de várias telas, cada um com seu propósito e para isso temos que ter a possibilidade de usar de um Intent para abrir essa nova tela.
+
+**Java:**
+
+``` Java
+
+Intent intent = new Intent(CurrentActivity.this, NextActivity.class);
+startActivity(intent);
+
+
+```
+
+**Kotlin:**
+
+``` Kotlin
+
+val intent = Intent(this, NextActivity::class.java)
+startActivity(intent)
+
+
+```
+
+### **4.Modificar a Cor de um Componente em Resposta a um Evento**
+
+Precisamos também muitas vezes interagir com nossos componentes não só recebendo seus eventos, mas também modificando algum atributo dele.
+
+**Java:**
+
+``` Java
+
+Button myButton = findViewById(R.id.my_button);
+myButton.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        myButton.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+    }
+});
+
+
+```
+
+**Kotlin:**
+
+``` Kotlin
+
+val myButton: Button = findViewById(R.id.my_button)
+myButton.setOnClickListener {
+    myButton.setBackgroundColor(resources.getColor(R.color.colorPrimary))
+}
+
+
+```
+
+### **5. Exibir mesnagem com um Toast** 
+
+É muito usual a comunicação do App com o usuário por meio de mensagem do próprio sistema operacional, como pop-ups ou avisos, para isso pode ser usado o Toast, entre outros.
+
+**Java:**
+
+``` Java
+
+Toast.makeText(getApplicationContext(), "Mensagem exibida", Toast.LENGTH_SHORT).show();
+
+```
+
+**Kotlin:**
+
+``` Kotlin
+
+Toast.makeText(applicationContext, "Mensagem exibida", Toast.LENGTH_SHORT).show()
+
+```
+
+---
+
+Essas são somente algumas funcionalidades básicas, mas que te permitirão ter uma noção de como o Java ou Kotlin interagem de fato com sua aplicação, permitindo de fato a interatividade e não uma tela estática.
+
 ## **Exemplo de Java e Kotlin**
 
 Exemplo de activity de tela de login, em que o usuário digita seu E-mail e senha, essas informações são buscadas no banco de dados Firebase e se permtido o usuário é direcionado para a tela principal, além de ter a opção de se redirecionar para outra tela para criar conta:
