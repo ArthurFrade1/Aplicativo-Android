@@ -524,6 +524,8 @@ Java foi a linguagem oficial para o desenvolvimento Android desde o início do s
 1. **Verbosidade:** Programar em Java pode exigir mais código para tarefas simples, o que pode levar a arquivos grandes e repetitivos.
 2. **Novas funcionalidades:** Algumas APIs mais recentes do Android foram projetadas com Kotlin em mente, o que faz o uso do Java parecer menos fluido nesses casos.
 
+Para mais informações detalhadas, visite a [**Documentação oficial do Java**](https://docs.oracle.com/en/java/).
+
 ---
 
 ### **Kotlin no Desenvolvimento Android**
@@ -546,16 +548,146 @@ Kotlin foi introduzido pela JetBrains em 2011 e adotado oficialmente pela Google
 1. **Curva de aprendizado:** Para quem vem de Java ou outra linguagem imperativa, pode levar tempo para se acostumar à sintaxe e aos conceitos mais modernos de Kotlin.
 2. **Recursos avançados:** Apesar de conciso, exige entender algumas abstrações modernas que podem confundir iniciantes.
 
+Para mais informações detalhadas, visite a [**Documentação oficial do Kotlin**](https://kotlinlang.org/docs/home.html).
+
 ## **Exemplo de Java e Kotlin**
 
 Exemplo de activity de tela de login, em que o usuário digita seu E-mail e senha, essas informações são buscadas no banco de dados Firebase e se permtido o usuário é direcionado para a tela principal, além de ter a opção de se redirecionar para outra tela para criar conta:
 
-###**Seu XML**: 
+### **Tela**: 
 <div align="center">
     <img src="https://github.com/user-attachments/assets/c64f20de-3e75-4661-9cc1-cc5db5b7a985" alt="image">
 </div>
 
-###**Seu código em java**:
+### **XML** 
+
+``` XML
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.musclemanager.Login">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="200dp"
+        android:src="@drawable/gym"/>
+
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:src="@drawable/mm"
+
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Muscle Manager"
+        android:textStyle="bold"
+        android:textColor="@color/orange"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="140dp"
+        android:layout_marginStart="38dp"
+        android:textSize="25dp"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLogin"
+
+        android:layout_width="match_parent"
+        android:layout_height="360dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+
+        android:background="@drawable/backgroundconstraintlogin"
+        android:backgroundTint="@color/black">
+
+    <EditText
+        android:id="@+id/emailEdit"
+
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:hint="  Email"
+        android:drawableEnd="@drawable/ic_email"
+        android:paddingEnd="9dp"
+        android:inputType="textEmailAddress"
+        android:background="@drawable/backgroundeditlogin"
+        />
+
+    <EditText
+        android:id="@+id/senhaEdit"
+
+        android:layout_width="360dp"
+        android:layout_height="60dp"
+
+        app:layout_constraintTop_toBottomOf="@id/emailEdit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        android:hint="  Senha"
+        android:drawableEnd="@drawable/ic_eye"
+        android:paddingEnd="9dp"
+        android:inputType="textPassword"
+        android:autofillHints="password"
+        android:background="@drawable/backgroundeditlogin"
+        />
+
+        <Button
+            android:id="@+id/butLogin"
+
+            android:layout_width="360dp"
+            android:layout_height="60dp"
+
+            android:text="Entrar"
+            android:textSize="20dp"
+            app:layout_constraintTop_toBottomOf="@id/senhaEdit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/backgroundeditlogin"
+            android:backgroundTint="@color/orange"/>
+
+        <Button
+            android:id="@+id/butCriarconta"
+
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintTop_toBottomOf="@id/butLogin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:background="@android:color/transparent"
+
+            android:text="Criar conta"
+            android:textColor="@color/orange"
+            android:textSize="20dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+````
+
+
+### **Código em Java**:
 
 ``` Java 
 
@@ -673,7 +805,7 @@ public class Login extends AppCompatActivity {
 
 ```
 
-###**Seu código em Kotlin**:
+### **Código em Kotlin**:
 
 ``` Kotlin
 
@@ -770,55 +902,6 @@ class Login : AppCompatActivity() {
 
 ```
 
-###  Comparação
-
-#### **1. Verbosidade**
-
-###### **Java**
-O Java é conhecido por ser uma linguagem mais verbosa, o que significa que você geralmente precisa escrever mais código para realizar a mesma tarefa. Isso pode levar a mais erros e a uma manutenção mais trabalhosa.
-
-**Exemplo (Login em Java):**
-```java
-Button button = findViewById(R.id.loginButton);
-button.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        // Lógica de login
-    }
-});
-
-```
-
-###### **Kotlin**
-O Kotlin, por outro lado, reduz a quantidade de código necessário, graças a seus recursos modernos, como funções lambda e inferência de tipo.
-
-**Exemplo (Login em Kotlin):**
-
-```Kotlin
-loginButton.setOnClickListener {
-    // Lógica de login
-}
-```
-
-####**2. Null Safety (Segurança contra valores nulos)**
-######**Java**
-O Java permite referências nulas, o que frequentemente leva ao infame erro de **NullPointerException (NPE)**, um dos erros mais comuns em aplicações Android.
-```Java
-String nome = null;
-// Isso pode causar um NullPointerException
-System.out.println(nome.length());
-```
-
-######**Kotlin**
-O Kotlin foi projetado para evitar NPEs ao introduzir a **segurança nula (Null Safety)**. Em Kotlin, um tipo não pode ser nulo por padrão. Se for necessário que uma variável aceite valores nulos, você deve explicitamente declará-la como tal, usando ?.
-
-```Kotlin
-var nome: String? = null
-// É necessário verificar se é nulo antes de acessar
-println(nome?.length)
-
-```
-
 ## **Comparação Java x Kotlin**
 
 | **Aspecto**             | **Java**                                   | **Kotlin**                                 |
@@ -849,4 +932,22 @@ println(nome?.length)
 ## **Conclusão**
 
 Ambas as linguagens são poderosas e podem ser usadas juntas em um mesmo projeto, permitindo a migração gradual de um código legado em Java para Kotlin. Essa interoperabilidade facilita a escolha baseada em necessidades específicas do projeto.
+
+
+
+## **Conclusão** 
+
+A Google criou um site especificamente para iniciantes no desenvolvimento Android, que pode ser acessado no link: [**Guia desenvolvimento Android**](https://developer.android.com/develop?hl=pt-br).
+
+Exemplos de Aplicativos simples desenvolvidos por nós:
+[**Aplicativo Muscle Manager**](https://github.com/ArthurFrade1/MuscleManager/tree/master).
+[**Aplicativo Muscle Manager**](https://github.com/GuilhermeADev/Aplicativo-Inclusao).
+
+Autores:
+Arthur Afonso Frade de Aquino
+Arthur Miranda Moreira
+Caio Rangel Nunes
+Luís Felipede Paula Mendes
+  
+
 
