@@ -1097,7 +1097,3 @@ Autores:
 - **Arthur Miranda Moreira**
 - **Caio Rangel Nunes**
 - **Luís Felipe de Paula Mendes**
-
-  
-
-
