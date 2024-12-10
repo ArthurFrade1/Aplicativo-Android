@@ -1093,7 +1093,7 @@ Exemplos de Aplicativos simples desenvolvidos por nós:
 
 Autores:
 
-- **Arthur Afonso Frade de Aquino**
-- **Arthur Miranda Moreira**
-- **Caio Rangel Nunes**
-- **Luís Felipe de Paula Mendes**
+- **Arthur Afonso Frade de Aquino -  Matrícula: 20223003299**
+- **Arthur Miranda Moreira        -  Matrícula: 20223003092** 
+- **Caio Rangel Nunes             -  Matrícula: 20223006209**
+- **Luís Felipe de Paula Mendes   -  Matrícula: 20213010478**
