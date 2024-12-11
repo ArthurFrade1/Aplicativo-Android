@@ -501,7 +501,7 @@ Para mais informações detalhadas, visite a [**Documentação oficial sobre XML
 
 ---
 
-Agora que já vimos o XML e como montar a estrutura visual da sua página, é hora de implementar a parte lógica e funcionl do seu aplicativo, o Back-End e para isso estudar o uso das duas linguagens mais usadas para esse fim. O Java e o Kotlin.
+Agora que já vimos o XML e como montar a estrutura visual da sua página, é hora de implementar a parte lógica e funcional do seu aplicativo, o Back-End, e para isso estudar o uso das duas linguagens mais usadas para esse fim. O Java e o Kotlin.
 
 ## Java e Kotlin 
 
@@ -1088,8 +1088,8 @@ Seguem links para estudo:
 
 Exemplos de Aplicativos simples desenvolvidos por nós:
 
-- [**Aplicativo Muscle Manager**](https://github.com/ArthurFrade1/MuscleManager/tree/master).
-- [**Aplicativo Muscle Manager**](https://github.com/GuilhermeADev/Aplicativo-Inclusao).
+- [**Aplicativo Muscle Manager**](https://github.com/ArthurFrade1/MuscleManager).
+- [**Aplicativo Inclusão Ibirité**](https://github.com/ArthurFrade1/App-Inclusao).
 
 Autores:
 
